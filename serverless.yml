@@ -18,6 +18,17 @@ functions:
 
     memorySize: 128  # Set the memory size in MB
     timeout: 10 # timeout in seconds
+    package:
+      patterns:
+        - "!node_modules/**"
+        - "!package-lock.json"
+        - "!package.json"
+        
+
 
 plugins:
   - serverless-python-requirements
+
+package: 
+  individually: true
+
