@@ -57,13 +57,11 @@ jobs:
           restore-keys: ${{ runner.os }}-build-${{ env.cache-name }}-
 
       - name: Install Node dependencies (specifically, serverless-python-requirements)
-        run: npm install
+        run: npm install && npm install -g serverless
 
       # Deploy to Lambda
       - name: Deploy Serverless Function
-        run: |
-          npm install -g serverless
-          serverless deploy --stage dev --region ${{ env.AWS_REGION }}
+        run: serverless deploy --stage dev --region ${{ env.AWS_REGION }}
 
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
