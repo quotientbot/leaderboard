@@ -1,4 +1,5 @@
 # Distribution / packaging
+node_modules/
 .Python
 env/
 build/
@@ -16,12 +17,12 @@ var/
 .installed.cfg
 *.egg
 
-
 env/*
 .venv/*
 *.py[cod]
 __pycache__/
 .vscode
+node_modules/
 
 # Serverless directories
 .serverless

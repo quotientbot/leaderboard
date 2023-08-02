@@ -19,3 +19,6 @@ functions:
 
     memorySize: 128  # Set the memory size in MB
     timeout: 10 # timeout in seconds
+
+plugins:
+  - serverless-python-requirements
