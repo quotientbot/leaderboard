@@ -1,9 +1,9 @@
 name: Deploy Python Lambda
 
 on:
-  push:
-    branches:
-      - main
+  #   push:
+  #     branches:
+  #       - main
 
   # Run this workflow manually from the Actions tab on Repo homepage
   workflow_dispatch:
