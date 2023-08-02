@@ -1,0 +1,21 @@
+org: deadaf
+app: leaderboard-system
+service: leaderboard-system
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: python3.9
+  region: us-east-1
+
+
+functions:
+  generate:
+    handler: handler.generate
+    events:
+      - httpApi:
+          path: /
+          method: get
+
+    memorySize: 128  # Set the memory size in MB
+    timeout: 10 # timeout in seconds
