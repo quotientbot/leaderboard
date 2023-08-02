@@ -36,6 +36,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Install flake8
+        run: pip install flake8
+
       - name: Lint with flake8
         run: |
           # Stop the build if there are Python syntax errors or undefined names
@@ -43,6 +46,7 @@ jobs:
           # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
           flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 
+      # Install and cache node dependencies
       - name: Cache node modules
         uses: actions/cache@v3
         env:
@@ -55,6 +59,7 @@ jobs:
       - name: Install Node dependencies (specifically, serverless-python-requirements)
         run: npm install
 
+      # Deploy to Lambda
       - name: Deploy Serverless Function
         uses: dhollerbach/actions.serverless-with-python-requirements@v2
         env:
