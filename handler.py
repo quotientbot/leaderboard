@@ -2,11 +2,8 @@ import json
 
 
 def generate(event, context):
-    body = {
-        "message": "Hello World!",
-        "input": event,
-    }
+    request_body = json.loads(event["body"])
 
-    response = {"statusCode": 200, "body": json.dumps(body)}
+    response = {"statusCode": 200, "body": request_body}
 
     return response
